@@ -10,7 +10,12 @@ const participents = require('./controller/participents');
 env.config()
 require('./db/dbConn')
 
- app.use(cors("*"))
+const corsOptions = {
+   origin: true, //included origin as true
+   credentials: true, //included credentials as true
+ };
+ app.use(cors(corsOptions));
+ app.options('*',cors())
  app.use(bodyparser.json())
  app.use(express.urlencoded({extended:false}))
  app.use(express.json());
@@ -29,7 +34,7 @@ app.use('/participant',participents)
 
 
 
- app.listen(5000,(err)=>{
+ app.listen(process.env.PORT || 5000,(err)=>{
     if(err) throw err
     console.log(`connection 5000`)
  })
