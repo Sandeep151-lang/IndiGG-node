@@ -25,10 +25,7 @@ require('./db/dbConn')
 
 app.use('/tournament',tournament)
 app.use('/participant',participents)
-//   app.use('/user',userRoute)
-// app.use('/course',courRoute)
-// app.use('/category',categoryRoute)
-// app.use('/cart',cartRoute)
+
 
 
 
